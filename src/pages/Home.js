@@ -6,11 +6,7 @@ import { useFetchPosts } from "../pages/useFetchposts"; // Adjust the path accor
 import { Add } from "../redux/Slices/Data_slice";
 
 const Home = () => {
-  const { loading,posts } = useFetchPosts();
-  const dispatch=useDispatch();
-  useEffect(()=>{
-    dispatch(Add(posts));
-  },[])
+  const { loading} = useFetchPosts();
   
   const value = useSelector((state) => state.Data);
   console.log("value of array is ", value);
