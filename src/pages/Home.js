@@ -1,37 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Spinner from "../Components/Spinner";
 import Product from "../Components/Product";
+import { useDispatch, useSelector } from "react-redux";
+import { useFetchPosts } from "../pages/useFetchposts"; // Adjust the path accordingly
+import { Add } from "../redux/Slices/Data_slice";
 
 const Home = () => {
-  const API_URL = "https://fakestoreapi.com/products";
-  const [loading, setLoading] = useState(false);
-  const [posts, setPost] = useState([]);
-  async function fetchProductData() {
-    setLoading(true);
-    try {
-      const res = await fetch(API_URL);
-      const data = await res.json();
-      setPost(data);
-    } catch {
-      console.log("404 Data Not Fetched");
-    }
-    setLoading(false);
-  }
-  useEffect(() => {
-    fetchProductData();
-  }, []);
+  const { loading,posts } = useFetchPosts();
+  const dispatch=useDispatch();
+  useEffect(()=>{
+    dispatch(Add(posts));
+  },[])
+  
+  const value = useSelector((state) => state.Data);
+  console.log("value of array is ", value);
 
   return (
     <div>
       <div>
         {loading ? (
           <Spinner />
-        ) : posts.length > 0 ? (
+        ) : value.length > 0 ? (
           <div
             className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
-           max-w-6xl p-2 mx-auto space-y-10 space-x-5 min-h-[80vh]  "
+           max-w-6xl p-2 mx-auto space-y-10 space-x-5 min-h-[80vh]"
           >
-            {posts.map((post) => (
+            {value.map((post) => (
               <Product key={post.id} post={post} />
             ))}
           </div>
@@ -46,7 +40,3 @@ const Home = () => {
 };
 
 export default Home;
-
-//  https://fakestoreapi.com/products/1
-
-//https://fakestoreapi.com/products
