@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Spinner from "../Components/Spinner";
 import Product from "../Components/Product";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { useFetchPosts } from "../pages/useFetchposts"; // Adjust the path accordingly
-import { Add } from "../redux/Slices/Data_slice";
+
 
 const Home = () => {
   const { loading} = useFetchPosts();
