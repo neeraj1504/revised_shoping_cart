@@ -22,7 +22,7 @@ const Cart = () => {
                 );
               })}
             </div>            
-            <div className=" w-[50%] p-4 flex flex-col  justify-between   bg-white">
+            <div className=" w-[50%] p-5 flex flex-col  justify-between   bg-white">
               <div className="flex flex-col  mb-4">
                 <div className="text-green-700 text-1xl font-bold">
                   Your Cart
