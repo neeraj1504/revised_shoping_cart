@@ -26,8 +26,8 @@ const Home = () => {
             ))}
           </div>
         ) : (
-          <div className="flex justify-center items-center">
-            <p>No Data Found</p>
+          <div className="flex justify-center items-center h-screen">
+            <p className="text-2xl font-semibold hover:text-3xl  ">No Data Found</p>
           </div>
         )}
       </div>

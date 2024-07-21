@@ -1,3 +1,4 @@
+
 // import "./App.css";
 // import Navbar from "./Components/Navbar";
 
@@ -70,6 +71,7 @@
 
 
 // src/App.js
+
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import Home from "./pages/Home";
@@ -78,7 +80,7 @@ import {Route, Routes} from "react-router-dom";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import Footer from "./Components/Footers";
-
+import Button from "./Components/Button"
 function App() {
   return (
     
@@ -86,7 +88,9 @@ function App() {
         <div className="bg-slate-900">
           <Navbar />
         </div>
-        
+        <div>
+          <Button/>
+        </div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
